@@ -81,6 +81,6 @@ const PackModel = sequelize.define("Pack", {
   },
 })
 
-await PackModel.sync({ alter: true })
+await PackModel.sync()
 
 export default PackModel

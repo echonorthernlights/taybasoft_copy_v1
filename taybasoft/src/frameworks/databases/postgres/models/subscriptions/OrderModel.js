@@ -24,7 +24,7 @@ const OrderModel = sequelize.define("Order", {
     references: {
       model: SubscriptionModel,
       key: "id",
-      deferrable: Deferrable.INITIALLY_IMMEDIATE,
+      deferrable: Deferrable.INITIALLY_DEFERRED,
     },
   },
   paymentDate: {
@@ -53,6 +53,6 @@ const OrderModel = sequelize.define("Order", {
   },
 })
 
-await OrderModel.sync({ alter: true })
+await OrderModel.sync()
 
 export default OrderModel

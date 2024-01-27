@@ -1,16 +1,16 @@
-import { DataTypes } from 'sequelize'
+import { DataTypes } from "sequelize"
 
-import createDbClient from '../../createDbClient.js'
+import createDbClient from "../../createDbClient.js"
 
-const { clientInstance: sequelize } = createDbClient('sequelize')
+const { clientInstance: sequelize } = createDbClient("sequelize")
 
-const RevokedToken = sequelize.define('RevokedToken', {
-	refreshToken: {
-		type: DataTypes.STRING,
-		allowNull: false,
-	}
+const RevokedToken = sequelize.define("RevokedToken", {
+  refreshToken: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 })
 
-await RevokedToken.sync({ alter: true })
+await RevokedToken.sync()
 
 module.exports = RevokedToken

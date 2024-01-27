@@ -32,6 +32,6 @@ const RoleModel = sequelize.define("Role", {
   },
 })
 
-await RoleModel.sync({ alter: true })
+await RoleModel.sync()
 
 export default RoleModel

@@ -127,6 +127,6 @@ const UserModel = sequelize.define(
 // UserModel.hasOne(RoleModel)
 // UserModel.belongsTo(SubscriberModel, { foreignKey: "subscriber" })
 UserModel.belongsTo(RoleModel, { foreignKey: "role" })
-await UserModel.sync({ alter: true })
+await UserModel.sync()
 
 export default UserModel
