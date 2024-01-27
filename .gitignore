@@ -1,0 +1,5 @@
+.env
+node_modules
+taybasoft/client/node_modules
+taybasoft/logs
+taybasoft/node_modules
