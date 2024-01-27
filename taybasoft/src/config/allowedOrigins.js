@@ -1,5 +1,5 @@
 const allowedOrigins = [
-  "http://localhost:5173",
+  "https://taybasoft.onrender.com",
   // "https://www.google.com"
 ]
 
