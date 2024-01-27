@@ -8,6 +8,7 @@
     "test": "jest",
     "server": "node server.js",
     "start": "node server.js",
+    "client-build": "npm run build --prefix client",
     "client": "npm run dev --prefix client",
     "project-setup": "npm i && cd client && npm i",
     "dev": "concurrently \" npm run client \" \" npm run server \"",
