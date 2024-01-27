@@ -10,7 +10,8 @@
     "start": "node server.js",
     "client": "npm run dev --prefix client",
     "project-setup": "npm i && cd client && npm i",
-    "dev": "concurrently \" npm run client \" \" npm run server \""
+    "dev": "concurrently \" npm run client \" \" npm run server \"",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",

@@ -16,9 +16,6 @@ const app = express()
 expressConfig(app)
 routes(app, express)
 
-app.use(notFoundError)
-app.use(errorMiddleware)
-
 // unhandledRejection + uncaughtException logs handling
 process.on("unhandledRejection", (reason, promise) => {
   logger.error(`Unhandled Rejection at ${promise}, reason : ${reason}`)
@@ -27,6 +24,24 @@ process.on("uncaughtException", (error) => {
   logger.error(`Uncaught Exception  : ${error} `)
 })
 
+//Production config
+if (process.env.NODE_ENV === "production") {
+  const __dirname = path.resolve()
+  app.use(express.static(path.join(__dirname, "/client/build")))
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  )
+} else {
+  //const __dirname = path.resolve();
+  //app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+  app.get("/", (req, res) => {
+    res.send("API is running....")
+  })
+}
+
+app.use(notFoundError)
+app.use(errorMiddleware)
 const server = http.createServer(app)
 subscriptionsActivationTask.start()
 serverConfig(app, dbClient, clientName, server, config).startServer()
